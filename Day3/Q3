@@ -1,0 +1,30 @@
+public class NumberFormatExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int num = Integer.parseInt("abc");
+        } catch (NumberFormatException e) {
+            System.out.println("Parsing Non-Numeric String: " + e);
+        }
+
+        try {
+            String input = "123abc";
+            int num = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("Reading user input without validation: " + e);
+        }
+
+        try {
+            java.text.DecimalFormat df = new java.text.DecimalFormat("#.##");
+            String formatted = df.format("xyz");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Formatting issues in Decimal Format: " + e);
+        }
+
+        try {
+            String value = "10,5";
+            double num = Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect use of localized decimal separators: " + e);
+        }
+    }
+}
