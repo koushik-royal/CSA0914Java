@@ -1,0 +1,9 @@
+class ThrowsExample {
+    public static void main(String[] args) throws Exception {
+        checkException();
+    }
+
+    public static void checkException() throws Exception {
+        throw new Exception("Throws example");
+    }
+}
