@@ -1,0 +1,39 @@
+interface SumInterface {
+    int sum(int a, int b);
+}
+
+interface AvgInterface {
+    double avg(int[] arr);
+}
+
+interface PercentageInterface {
+    double percentage(int total, int obtained);
+}
+
+class MultiInterfaceImpl implements SumInterface, AvgInterface, PercentageInterface {
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    public double avg(int[] arr) {
+        int total = 0;
+        for (int num : arr) {
+            total += num;
+        }
+        return (double) total / arr.length;
+    }
+
+    public double percentage(int total, int obtained) {
+        return (double) obtained / total * 100;
+    }
+}
+
+public class MultipleInterfacesExample {
+    public static void main(String[] args) {
+        MultiInterfaceImpl impl = new MultiInterfaceImpl();
+        System.out.println("Sum: " + impl.sum(10, 20));
+        int[] arr = {70, 80, 90};
+        System.out.println("Average: " + impl.avg(arr));
+        System.out.println("Percentage: " + impl.percentage(300, 240));
+    }
+}
