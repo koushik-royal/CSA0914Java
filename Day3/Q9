@@ -1,0 +1,46 @@
+class ArmstrongThread extends Thread {
+    @Override
+    public void run() {
+        for (int i = 100; i <= 999; i++) {
+            int sum = 0, num = i;
+            while (num != 0) {
+                int rem = num % 10;
+                sum += rem * rem * rem;
+                num /= 10;
+            }
+            if (sum == i) {
+                System.out.println("Armstrong Number: " + i);
+            }
+        }
+    }
+}
+
+class FibonacciThread extends Thread {
+    @Override
+    public void run() {
+        int n1 = 0, n2 = 1, n3, count = 10;
+        System.out.print("Fibonacci Series: " + n1 + " " + n2);
+        for (int i = 2; i < count; ++i) {
+            n3 = n1 + n2;
+            System.out.print(" " + n3);
+            n1 = n2;
+            n2 = n3;
+        }
+        System.out.println();
+    }
+}
+
+public class ThreadLifeCycleExample {
+    public static void main(String[] args) throws InterruptedException {
+        ArmstrongThread t1 = new ArmstrongThread();
+        FibonacciThread t2 = new FibonacciThread();
+
+        t1.start();
+        t1.sleep(1000);
+        t2.start();
+        t2.sleep(2000);
+
+        t1.join();
+        t2.join();
+    }
+}
