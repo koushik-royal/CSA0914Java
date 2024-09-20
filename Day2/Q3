@@ -1,0 +1,19 @@
+class Base {
+    public void area(int a, int b) {
+        System.out.println("Area of square: " + (a * a));
+    }
+}
+
+class Derived extends Base {
+    @Override
+    public void area(int a, int b) {
+        System.out.println("Area of rectangle: " + (a * b));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Derived obj = new Derived();
+        obj.area(4, 5);
+    }
+}
