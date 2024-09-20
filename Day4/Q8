@@ -1,0 +1,47 @@
+interface Tree {
+    void fruits(int count1, int count2);
+    void leaves(int count1, int count2, int count3);
+    void flowers(int count1, int count2, int count3, int count4);
+}
+
+class Branch1 implements Tree {
+    public void fruits(int count1, int count2) {
+        System.out.println("Branch1 Fruits: " + (count1 + count2));
+    }
+
+    public void leaves(int count1, int count2, int count3) {
+        System.out.println("Branch1 Leaves: " + (count1 + count2 + count3));
+    }
+
+    public void flowers(int count1, int count2, int count3, int count4) {
+        System.out.println("Branch1 Flowers: " + (count1 + count2 + count3 + count4));
+    }
+}
+
+class Branch2 implements Tree {
+    public void fruits(int count1, int count2) {
+        System.out.println("Branch2 Fruits: " + (count1 * count2));
+    }
+
+    public void leaves(int count1, int count2, int count3) {
+        System.out.println("Branch2 Leaves: " + (count1 * count2 * count3));
+    }
+
+    public void flowers(int count1, int count2, int count3, int count4) {
+        System.out.println("Branch2 Flowers: " + (count1 * count2 * count3 * count4));
+    }
+}
+
+public class TreeExample {
+    public static void main(String[] args) {
+        Branch1 b1 = new Branch1();
+        b1.fruits(2, 3);
+        b1.leaves(1, 2, 3);
+        b1.flowers(1, 2, 3, 4);
+
+        Branch2 b2 = new Branch2();
+        b2.fruits(2, 3);
+        b2.leaves(1, 2, 3);
+        b2.flowers(1, 2, 3, 4);
+    }
+}
