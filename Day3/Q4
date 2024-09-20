@@ -1,0 +1,43 @@
+public class IllegalArgumentExceptionExample {
+    public static void main(String[] args) {
+        try {
+            sqrt(-1);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Negative argument: " + e);
+        }
+
+        try {
+            checkEnum(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid Enum Constant: " + e);
+        }
+
+        try {
+            setRange(10, 5);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid range for method parameter: " + e);
+        }
+
+        try {
+            nonEmptyString("");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Empty or null string: " + e);
+        }
+    }
+
+    public static void sqrt(int n) {
+        if (n < 0) throw new IllegalArgumentException("Negative numbers not allowed");
+    }
+
+    public static void checkEnum(String enumConstant) {
+        if (enumConstant == null) throw new IllegalArgumentException("Enum cannot be null");
+    }
+
+    public static void setRange(int start, int end) {
+        if (start > end) throw new IllegalArgumentException("Start should be less than end");
+    }
+
+    public static void nonEmptyString(String str) {
+        if (str == null || str.isEmpty()) throw new IllegalArgumentException("String cannot be null or empty");
+    }
+}
