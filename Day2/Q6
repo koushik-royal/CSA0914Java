@@ -1,0 +1,38 @@
+interface Operations {
+    void add();
+    void sub();
+    void mul();
+    void div();
+}
+
+class ImplementClass implements Operations {
+    @Override
+    public void add() {
+        System.out.println("Add operation");
+    }
+
+    @Override
+    public void sub() {
+        System.out.println("Subtract operation");
+    }
+
+    @Override
+    public void mul() {
+        System.out.println("Multiply operation");
+    }
+
+    @Override
+    public void div() {
+        System.out.println("Divide operation");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ImplementClass obj = new ImplementClass();
+        obj.add();
+        obj.sub();
+        obj.mul();
+        obj.div();
+    }
+}
