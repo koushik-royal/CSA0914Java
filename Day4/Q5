@@ -1,0 +1,63 @@
+abstract class Statistics {
+    public abstract int total(int[] arr);
+    public abstract double average(int[] arr);
+    
+    public double mean(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        return (double) sum / arr.length;
+    }
+    
+    public int mode(int[] arr) {
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        for (int num : arr) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
+        int mode = arr[0], maxCount = 0;
+        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                maxCount = entry.getValue();
+                mode = entry.getKey();
+            }
+        }
+        return mode;
+    }
+
+    public double median(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        if (n % 2 == 0) {
+            return (arr[n / 2 - 1] + arr[n / 2]) / 2.0;
+        } else {
+            return arr[n / 2];
+        }
+    }
+}
+
+class StatisticsImpl extends Statistics {
+    public int total(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    public double average(int[] arr) {
+        return total(arr) / (double) arr.length;
+    }
+}
+
+public class AbstractClassExample {
+    public static void main(String[] args) {
+        StatisticsImpl stats = new StatisticsImpl();
+        int[] arr = {1, 2, 2, 3, 4};
+        System.out.println("Total: " + stats.total(arr));
+        System.out.println("Average: " + stats.average(arr));
+        System.out.println("Mean: " + stats.mean(arr));
+        System.out.println("Mode: " + stats.mode(arr));
+        System.out.println("Median: " + stats.median(arr));
+    }
+}
