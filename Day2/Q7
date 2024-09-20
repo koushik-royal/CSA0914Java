@@ -1,0 +1,37 @@
+interface SumInterface {
+    void sum();
+}
+
+interface AvgInterface {
+    void avg();
+}
+
+interface PercentageInterface {
+    void percentage();
+}
+
+class MultipleInterfacesClass implements SumInterface, AvgInterface, PercentageInterface {
+    @Override
+    public void sum() {
+        System.out.println("Sum method");
+    }
+
+    @Override
+    public void avg() {
+        System.out.println("Average method");
+    }
+
+    @Override
+    public void percentage() {
+        System.out.println("Percentage method");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MultipleInterfacesClass obj = new MultipleInterfacesClass();
+        obj.sum();
+        obj.avg();
+        obj.percentage();
+    }
+}
