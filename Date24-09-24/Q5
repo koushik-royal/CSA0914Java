@@ -1,0 +1,13 @@
+import java.util.Scanner;
+import java.time.LocalTime;
+import java.time.ZoneOffset;
+
+public class CurrentTimeGMT {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input the time zone offset to GMT: ");
+        int offset = scanner.nextInt();
+        LocalTime currentTime = LocalTime.now(ZoneOffset.ofHours(offset));
+        System.out.printf("Current time is %s", currentTime);
+    }
+}
