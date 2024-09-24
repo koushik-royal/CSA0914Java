@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class BreakInteger {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input six non-negative digits: ");
+        int number = scanner.nextInt();
+        
+        String numStr = Integer.toString(number);
+        for (int i = 0; i < numStr.length(); i++) {
+            System.out.print(numStr.charAt(i) + " ");
+        }
+    }
+}
