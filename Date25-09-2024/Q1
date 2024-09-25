@@ -1,0 +1,24 @@
+Start
+    Initialize countUppercase to 0
+    Initialize countLowercase to 0
+    Initialize countNumbers to 0
+
+    Repeat:
+        Read character from user (char)
+        If char is '*'
+            Exit loop
+        End if
+
+        If char is an uppercase letter (A-Z)
+            Increment countUppercase by 1
+        Else if char is a lowercase letter (a-z)
+            Increment countLowercase by 1
+        Else if char is a number (0-9)
+            Increment countNumbers by 1
+        End if
+    End Repeat
+
+    Print countUppercase
+    Print countLowercase
+    Print countNumbers
+End
